@@ -1,7 +1,7 @@
 public class IntToBin {
     public static String intToBin(int n) {
         String bin = "";
-        while(n != 0) {
+        while(n > 0) {
             bin = (n%2) + bin;
             n /= 2;
         }
