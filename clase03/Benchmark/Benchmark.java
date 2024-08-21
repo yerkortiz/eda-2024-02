@@ -1,45 +1,48 @@
 package Benchmark;
 
-import java.util.Scanner;
-
 public class Benchmark {
     static String intToBin(int x){
-        String s = ""; //1
-        s += (x % 2); //1
-        // lg (n)
-        while(x > 1) { // depende de cuantas divisiones tenga x para llegar a 1
-            x /= 2; // 1
-            s = (x % 2) + s; // log (n)
+        String s = ""; 
+        s += (x % 2); 
+        while(x > 1) {
+            x /= 2; 
+            s = (x % 2) + s; 
         }
-        return s; // 1
+        return s; 
     }
 
     static String intToBin2(int x){
-        StringBuilder s = new StringBuilder(); //1
-        s.append(x % 2); //1
-        while(x > 1) { // lg n
-            x /= 2; //1
-            s.append(x % 2); //1
+        StringBuilder s = new StringBuilder(); 
+        s.append(x % 2); 
+        while(x > 1) {
+            x /= 2; 
+            s.append(x % 2); 
         }
         
-        return s.reverse().toString(); //1
+        return s.reverse().toString(); 
     }
 
     static double nanoSecondsToSeconds(double ns){
         return ns / 1e9;
     }
-    //1e9 significa 10 elevado a 9, 1000000000
-     public static void main(String[] args) {
-        Scanner stdin = new Scanner(System.in);
-        int high = stdin.nextInt();
-        
-        System.out.printf("calculating int to bin for every integer from 0 to %d\n", high);
-        long startTime = System.nanoTime();
-        for(int i = 0; i <= high; i++){
-            System.out.println(intToBin2(i));
+
+    static boolean LinearSearch(int[] A, int x) {
+        for(int i = 0; i < A.length; i++) {
+            if (A[i] == x) 
+                return true;
         }
-        long endTime = System.nanoTime();
-        System.out.printf("the calculation took %f seconds\n", nanoSecondsToSeconds((double) (endTime - startTime) ));
-        stdin.close();
+        return false;
+    }
+    public static void main(String[] args) {
+        System.out.println("Benchmark for intToBin");
+        for (int i = 1; i <= 1000000000; i *= 10) {
+            System.out.printf("n = %d ", i);
+            long startTime = System.nanoTime();
+            for(int j = 0; j <= i; j++){
+                intToBin(j);
+            }
+            long endTime = System.nanoTime();
+            System.out.printf("t(seconds) = %f\n", nanoSecondsToSeconds((double) (endTime - startTime)));
+        }
     }
 }

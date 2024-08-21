@@ -1,0 +1,11 @@
+Benchmark for intToBin
+n = 1 t(seconds) = 0.001641
+n = 10 t(seconds) = 0.001054
+n = 100 t(seconds) = 0.000473
+n = 1000 t(seconds) = 0.001577
+n = 10000 t(seconds) = 0.008420
+n = 100000 t(seconds) = 0.019334
+n = 1000000 t(seconds) = 0.151240
+n = 10000000 t(seconds) = 1.529341
+n = 100000000 t(seconds) = 18.332984
+n = 1000000000 t(seconds) = 213.961120

@@ -26,9 +26,10 @@ public class Analysis {
         return s.reverse().toString();
     }
 
-    //O(max(n, m)) where n is the length of x and m the length of y
+    //O(max(n, m)) donde n es el largo de x y m el largo de y
     static int[] add(int[] x, int[] y) {
-        if (x.length < y.length) return add (y, x); //depends on how many operations add have
+        //para asegurar que x siempre sea mas largo que y
+        if (x.length < y.length) return add (y, x); 
 
         int carry = 0; // 1
         int sum = 0;
@@ -36,7 +37,7 @@ public class Analysis {
         int j = y.length - 1;
         int[] res = new int[x.length+1];
 
-        while(j > -1) { //depends of length of y
+        while(j > -1) { //depende del largo de y
             sum = x[i] + y[j] + carry; //1
             res[i + 1] = sum % 10 ; //1
             carry = sum/10; //1
@@ -44,7 +45,7 @@ public class Analysis {
             j--; //1
         }
 
-        while(i > -1) { //depends of lenght of x - lenght of y
+        while(i > -1) { //depende del largo de x menos el de y
             sum = x[i] + carry; //1
             res[i + 1] = sum % 10; //1
             carry = sum/10; //1
