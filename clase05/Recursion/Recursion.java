@@ -34,6 +34,17 @@ public class Recursion {
         return memo[n];
     }
 
+    static int buFib(int n) {
+        int[] table = new int[n+1];
+        table[0] = 1;
+        table[1] = 1;
+        for(int i  = 2; i <= n; ++i) {
+            table[i] = table[i-2] + table[i-1];
+        }
+
+        return table[n];
+    }
+
     static void recArray(int[] A, int i) {
         if(i >= A.length || i < 0) return;
 
@@ -57,8 +68,8 @@ public class Recursion {
         // System.out.println(intToBin(0));
         // System.out.println(intToBin(1));
         // System.out.println(intToBin(6));
-        System.out.println(fibMemo(0));
-        System.out.println(fibMemo(1));
+        // System.out.println(fibMemo(0));
+        // System.out.println(fibMemo(1));
         // System.out.println(fibMemo(2));
         // System.out.println(fibMemo(3));
         // System.out.println(fibMemo(4));
@@ -66,6 +77,9 @@ public class Recursion {
         // System.out.println(fibMemo(6));
         // System.out.println(fibMemo(7));
         // System.out.println(fibMemo(30));
-
+        System.out.println(intToBin(2048));
+        System.out.println(intToBin(89));
+        System.out.println(intToBin(71));
+        System.out.println(intToBin(18));
     }
 }
